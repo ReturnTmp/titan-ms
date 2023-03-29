@@ -1,6 +1,7 @@
 package io.github.returntmp.titanms.controller;
 
 import io.github.returntmp.titanms.common.ResponseCode;
+import io.github.returntmp.titanms.common.Result;
 import io.github.returntmp.titanms.domain.Ticket;
 import io.github.returntmp.titanms.service.OpItemService;
 import io.github.returntmp.titanms.service.TicketService;

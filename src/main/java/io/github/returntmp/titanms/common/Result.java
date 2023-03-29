@@ -1,4 +1,4 @@
-package io.github.returntmp.titanms.controller;
+package io.github.returntmp.titanms.common;
 
 
 import lombok.AllArgsConstructor;

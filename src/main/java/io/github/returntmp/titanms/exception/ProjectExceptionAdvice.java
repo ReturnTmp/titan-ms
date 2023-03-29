@@ -1,7 +1,7 @@
 package io.github.returntmp.titanms.exception;
 
 import io.github.returntmp.titanms.common.ResponseCode;
-import io.github.returntmp.titanms.controller.Result;
+import io.github.returntmp.titanms.common.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
