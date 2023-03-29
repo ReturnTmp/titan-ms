@@ -1,44 +1,34 @@
 package io.github.returntmp.titanms.controller;
-public class Result {//用于与页面的数据交互
-    private Object data;
-    private Integer code;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * 通用返回类
+ *
+ * @author ReturnTmp
+ * @date 2023/03/29
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Result<T> {
+    /**
+     * 状态码
+     */
+    private int status;
+    /**
+     * 消息
+     */
     private String msg;
-
-    public Result() {
-    }
-
-    public Result(Integer code, Object data) {
-        this.data = data;
-        this.code = code;
-    }
-
-    public Result(Integer code, Object data, String msg) {
-        this.data = data;
-        this.code = code;
-        this.msg = msg;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+    /**
+     * 响应码
+     */
+    private int responseCode;
+    /**
+     * 数据
+     */
+    private T data;
 }

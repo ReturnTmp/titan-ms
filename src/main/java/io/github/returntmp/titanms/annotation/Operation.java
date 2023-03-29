@@ -5,10 +5,11 @@ import java.lang.annotation.*;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;
 
+
 /**
- * 操作类
+ * 操作
  *
- * @author CGH
+ * @author ReturnTmp
  * @date 2023/03/29
  */
 @Target({METHOD, TYPE})

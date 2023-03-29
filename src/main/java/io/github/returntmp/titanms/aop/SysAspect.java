@@ -1,4 +1,5 @@
 package io.github.returntmp.titanms.aop;
+
 import cn.hutool.system.SystemUtil;
 import io.github.returntmp.titanms.annotation.Operation;
 import io.github.returntmp.titanms.domain.OpItem;
@@ -14,28 +15,35 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.Date;
 import java.util.Objects;
 
+
+/**
+ * 系统切面
+ *
+ * @author ReturnTmp
+ * @date 2023/03/29
+ */
 @Aspect
 @Component
 public class SysAspect {
 
+    /**
+     * 系统日志服务
+     */
     @Autowired
     private ISysLogService sysLogService;
 
-    //定义切点 @Pointcut
-    //在注解的位置切入代码
     @Pointcut("@annotation(io.github.returntmp.titanms.Operation)")
-    public void logPointCut(){
+    public void logPointCut() {
     }
 
     @AfterReturning("logPointCut()")
     public void saveSysLog(JoinPoint joinPoint) {
-        //保存日志
         SysLog sysLog = new SysLog();
 
         //从切面织入点处通过反射机制获取织入点处的方法
@@ -67,12 +75,12 @@ public class SysAspect {
 
         //获取操作对象的id（若有）
         Parameter[] parameters = method.getParameters();
-        if (parameters[0].getName().equals("id")){
+        if (parameters[0].getName().equals("id")) {
             Object arg = joinPoint.getArgs()[0];
             sysLog.setObId((Long) arg);
         } else if (parameters[0].getName().equals("ticket")) {
             Object arg = joinPoint.getArgs()[0];
-            Ticket ticket = (Ticket)arg;
+            Ticket ticket = (Ticket) arg;
             sysLog.setObId(ticket.getId());
         } else if (parameters[0].getName().equals("opItem")) {
             Object arg = joinPoint.getArgs()[0];

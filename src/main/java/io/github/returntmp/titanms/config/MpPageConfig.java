@@ -5,16 +5,18 @@ import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerIntercept
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * MP分页配置
+ *
+ * @author ReturnTmp
+ * @date 2023/03/29
+ */
 @Configuration
-public class MpConfig {//添加MybatisPlus拦截器，从而新增分页查询功能
+public class MpPageConfig {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor(){
-        //添加拦截器
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
-        //分页
         mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
-        //乐观锁
-        //mybatisPlusInterceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
         return mybatisPlusInterceptor;
     }
 }
