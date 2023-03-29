@@ -30,7 +30,7 @@ CREATE TABLE `tb_opitem`
     `complete_time`      datetime(0) NULL DEFAULT NULL COMMENT '完成时间',
     `create_time`        datetime(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `update_time`        datetime(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-    `is_delete`          tinyint(0) NULL DEFAULT NULL COMMENT '是否删除，',
+    `deleted`            tinyint(0) NULL DEFAULT 0 COMMENT '是否删除,0是初始状态，1表示删除',
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 

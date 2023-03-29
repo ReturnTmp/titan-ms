@@ -1,21 +1,22 @@
 package io.github.returntmp.titanms.service.impl;
 
-import io.github.returntmp.titanms.dao.WarningDao;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.github.returntmp.titanms.domain.SysLog;
+import io.github.returntmp.titanms.mapper.SysLogMapper;
+import io.github.returntmp.titanms.mapper.WarningMapper;
 import io.github.returntmp.titanms.domain.Warning;
 import io.github.returntmp.titanms.service.WarningService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.annotation.Annotation;
-
 @Service
-public class WarningServiceImpl implements WarningService {
+public class WarningServiceImpl extends ServiceImpl<WarningMapper, Warning> implements WarningService {
     @Autowired
-    private WarningDao warningDao;
+    private WarningMapper warningMapper;
 
     @Override
     public boolean add(Warning warning) {
-        return warningDao.insert(warning) > 0;
+        return warningMapper.insert(warning) > 0;
     }
 
 }

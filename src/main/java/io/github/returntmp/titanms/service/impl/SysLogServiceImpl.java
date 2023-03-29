@@ -1,21 +1,22 @@
 package io.github.returntmp.titanms.service.impl;
 
 import cn.hutool.core.util.IdUtil;
-import io.github.returntmp.titanms.dao.SysLogDao;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.github.returntmp.titanms.mapper.SysLogMapper;
 import io.github.returntmp.titanms.domain.SysLog;
-import io.github.returntmp.titanms.service.ISysLogService;
+import io.github.returntmp.titanms.service.SysLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ISysLogServiceImpl implements ISysLogService {
+public class SysLogServiceImpl extends ServiceImpl<SysLogMapper,SysLog> implements SysLogService {
 
     @Autowired
-    private SysLogDao sysLogDao;
+    private SysLogMapper sysLogMapper;
 
     @Override
     public void saveLog(SysLog sysLog) {
         sysLog.setLogId(IdUtil.simpleUUID());
-        sysLogDao.insert(sysLog);
+        sysLogMapper.insert(sysLog);
     }
 }

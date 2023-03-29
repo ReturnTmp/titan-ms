@@ -1,7 +1,7 @@
 package io.github.returntmp.titanms;
 
-import io.github.returntmp.titanms.dao.OpItemDao;
-import io.github.returntmp.titanms.dao.TicketDao;
+import io.github.returntmp.titanms.mapper.OpItemMapper;
+import io.github.returntmp.titanms.mapper.TicketMapper;
 import io.github.returntmp.titanms.domain.Ticket;
 import io.github.returntmp.titanms.service.OpItemService;
 import io.github.returntmp.titanms.service.TicketService;
@@ -14,9 +14,9 @@ import java.util.List;
 @SpringBootTest
 class TitanMSApplicationTests {
     @Autowired
-    private TicketDao ticketDao;
+    private TicketMapper ticketMapper;
     @Autowired
-    private OpItemDao opItemDao;
+    private OpItemMapper opItemMapper;
     @Autowired
     private TicketService ticketService;
     @Autowired
